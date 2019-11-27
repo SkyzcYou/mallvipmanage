@@ -18,9 +18,19 @@ public class CharacterFilter implements Filter {
 
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
+
+        String url = request.getRequestURI();
+        System.out.println("Request URL：" + url);
+        // 过滤静态文件
+        if (url.indexOf(".css")>0 || url.indexOf(".js")>0 || url.indexOf(".png")>0 || url.indexOf(".jpg")>0){
+
+        }else {
+            response.setContentType("text/html;charset=utf-8");
+        }
+
         // 拦截所有请求 解决中文乱码。指定 request 和 response 的编码格式
         request.setCharacterEncoding("utf-8");  // 只对消息体有效
-        response.setContentType("text/html;charset=utf-8");
+
         // 对request 进行包装
         CharacterRequest characterRequest = new CharacterRequest(request);
         filterChain.doFilter(characterRequest,response);
