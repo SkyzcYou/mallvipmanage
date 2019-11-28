@@ -27,7 +27,7 @@ public class MallInfoServlet extends HttpServlet {
         req.setAttribute("phoneNumber",phoneNumber);
         req.setAttribute("address",address);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/about.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("about.jsp");
         dispatcher.forward(req,resp);
 
     }

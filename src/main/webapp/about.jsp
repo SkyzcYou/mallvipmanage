@@ -21,7 +21,7 @@
 <body style="background-color: #f6f6f6">
 <div class="container" style="height: 1080px">
     <div class="header">
-        <%@include file="WEB-INF/views/head.jsp"%>
+        <%@include file="WEB-INF/views/client/head.jsp"%>
     </div>
     <div class="main" style="height: 500px;background-color: white;margin-top: 15px">
         <h1>关于我们:</h1>
@@ -30,7 +30,7 @@
         地址：${address}<br/>
     </div>
     <div class="foot">
-        <%@include file="WEB-INF/views/foot.jsp"%>
+        <%@include file="WEB-INF/views/client/foot.jsp"%>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/static/js/jquery-3.4.1.js"></script>

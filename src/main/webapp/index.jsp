@@ -84,7 +84,7 @@
 <body style="background-color: #f6f6f6">
     <div class="container" style="height: 1080px">
         <div class="header">
-            <%@include file="WEB-INF/views/head.jsp"%>
+            <%@include file="WEB-INF/views/client/head.jsp"%>
         </div>
         <div class="main" style="background-color: white;margin-top: 15px">
             <!-- 轮播 banner -->
@@ -150,6 +150,7 @@
                 </div>
                 <div class="clear"></div>
             </div>
+            <h1>初始：${name}</h1>
             <!-- 合作商列表 -->
             <div class="mall_list_div">
                 <ul>
@@ -166,7 +167,7 @@
             </div>
         </div>
         <div class="foot" style="margin-top: 10px">
-            <%@include file="WEB-INF/views/foot.jsp"%>
+            <%@include file="WEB-INF/views/client/foot.jsp"%>
         </div>
     </div>
     <script src="${pageContext.request.contextPath}/static/js/jquery-3.4.1.js"></script>

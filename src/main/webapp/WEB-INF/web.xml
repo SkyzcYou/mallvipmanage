@@ -4,6 +4,10 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <!--  -->
+  <welcome-file-list>
+    <welcome-file>index</welcome-file>
+  </welcome-file-list>
   <!-- Filter -->
   <filter>
     <filter-name>CharacterFilter</filter-name>
@@ -15,8 +19,16 @@
   </filter-mapping>
   <!-- Servlet -->
   <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>com.yingnuo.web.servlet.IndexServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>CharacterServlet</servlet-name>
-    <servlet-class>com.yingnuo.web.servlet.CharacterServlet</servlet-class>
+    <servlet-class>com.yingnuo.web.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CharacterServlet</servlet-name>

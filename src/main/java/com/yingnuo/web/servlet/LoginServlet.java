@@ -6,11 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class CharacterServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println(req.getParameter("name"));
+        System.out.println(req.getParameter("phone"));
         System.out.println(req.getParameter("password"));
+
+        String phone = req.getParameter("phone");
+        String password = req.getParameter("password");
+
+
     }
 
     @Override

@@ -29,7 +29,7 @@
                         data-target="#myModal" style="margin-right: 5px">注册
                 </button>
                 <button type="button" class="btn btn-success btn-outline-light"
-                        onclick="location.href = 'login.jsp'">登录
+                        onclick="location.href = '${pageContext.request.contextPath}/login.jsp'">登录
                 </button>
             </form>
         </div>

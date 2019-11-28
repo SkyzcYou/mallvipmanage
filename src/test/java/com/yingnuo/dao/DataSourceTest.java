@@ -1,4 +1,4 @@
-package java.com.yingnuo.dao;
+package com.yingnuo.dao;
 
 import javax.sql.DataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;

@@ -17,7 +17,7 @@
             margin-bottom: 0;
         }
         .footer a{
-            color: #4076b4 !important;
+            color: #4076b4;
         }
         .info_div{
             padding: 20px 0;
@@ -27,7 +27,10 @@
         /*    right: 10px;*/
         /*}*/
         div.more{
-            padding: 50px 20px;
+            padding: 50px 0px 50px 70px;
+        }
+        div.more a{
+            color: #8d8d8d;
         }
     </style>
 </head>
