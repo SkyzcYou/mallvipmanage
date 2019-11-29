@@ -44,8 +44,8 @@
         <div class="main">
             <div class="content row">
                 <div class="login_form_div col-md-4 align-self-center">
-                    <h5>登录</h5><hr>
-                    <form action="${pageContext.request.contextPath}/LoginServlet" method="post">
+                    <h5>会员登录</h5><hr>
+                    <form action="${pageContext.request.contextPath}/Login" method="post">
                         <div class="form-group row">
                             <label for="phone" class="col-md-4">手机号:</label>
                             <input type="text" class="form-control col-md-8" id="phone" name="phone" placeholder="输入您的手机号">

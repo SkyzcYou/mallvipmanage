@@ -39,7 +39,7 @@
     <div class="footer row">
         <div class="info_div col-md-8">
             <p>Copyright © 2006-2019 YINGNUO SUPERSTORES, All Rights Reserved. </p>
-            <p>中国福建省福州市西二环中路436号&nbsp; 消费者服务热线：4000601933</p>
+            <p>中国福内蒙古西二环中路436号&nbsp; 消费者服务热线：4000601933</p>
             <p>
                 <a href="http://www.beian.miit.gov.cn" target="_blank">蒙ICP备12345678号</a>
                 &nbsp;公安机关备案号 123456789

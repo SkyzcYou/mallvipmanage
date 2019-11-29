@@ -12,6 +12,9 @@ public class UserService {
     public User login(String phone,String password) throws LoginException{
         try {
             User user = dao.findUserByPhoneAndPassword(phone,password);
+            if (user != null){
+                return user;
+            }
             throw new LoginException("手机号或密码有误");
         } catch (SQLException e) {
             e.printStackTrace();

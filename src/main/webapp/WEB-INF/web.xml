@@ -17,6 +17,14 @@
     <filter-name>CharacterFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <filter>
+    <filter-name>AutoLoginFilter</filter-name>
+    <filter-class>com.yingnuo.web.filter.AutoLoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutoLoginFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
   <!-- Servlet -->
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
@@ -27,11 +35,11 @@
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>CharacterServlet</servlet-name>
+    <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.yingnuo.web.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CharacterServlet</servlet-name>
-    <url-pattern>/CharacterServlet</url-pattern>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/Login</url-pattern>
   </servlet-mapping>
 </web-app>

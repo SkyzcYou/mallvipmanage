@@ -18,19 +18,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/index.jsp">首页</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/index">首页</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/mallInfo">关于</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <button type="button" class="btn btn-success btn-outline-light" data-toggle="modal"
-                        data-target="#myModal" style="margin-right: 5px">注册
-                </button>
-                <button type="button" class="btn btn-success btn-outline-light"
-                        onclick="location.href = '${pageContext.request.contextPath}/login.jsp'">登录
-                </button>
+                <c:choose>
+                    <c:when test="${sessionScope.user  == null }">
+                        <button type="button" class="btn btn-success btn-outline-light" data-toggle="modal"
+                                data-target="#myModal" style="margin-right: 5px">注册
+                        </button>
+                        <button type="button" class="btn btn-success btn-outline-light"
+                                onclick="location.href = '${pageContext.request.contextPath}/login.jsp'">登录
+                        </button>
+                    </c:when>
+                    <c:otherwise>
+                        <h6 style="color: white">你好：<a href="${pageContext.request.contextPath}/userCenter" style="color: #98d4ff">${sessionScope.user.username}</a>
+                            <a href="${pageContext.request.contextPath}/logout" style="color: white">，注销</a>
+                        </h6>
+                    </c:otherwise>
+                </c:choose>
             </form>
         </div>
     </nav>

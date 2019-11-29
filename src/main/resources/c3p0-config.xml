@@ -3,7 +3,7 @@
     <!-- c3p0 数据源配置 -->
     <default-config>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://localhost:3306/mall_vip_manage</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/mall_vip_manage?serverTimezone=UTC;characterEncoding=utf-8</property>
         <property name="user">root</property>
         <property name="password">140472</property>
     </default-config>

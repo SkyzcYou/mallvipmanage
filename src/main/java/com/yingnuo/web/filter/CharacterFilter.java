@@ -20,7 +20,7 @@ public class CharacterFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String url = request.getRequestURI();
-        System.out.println("Request URL：" + url);
+        System.out.println("[CharacterFilter]-Request URL：" + url);
         // 过滤静态文件
         if (url.indexOf(".css")>0 || url.indexOf(".js")>0 || url.indexOf(".png")>0 || url.indexOf(".jpg")>0){
 
