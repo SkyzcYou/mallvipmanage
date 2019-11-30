@@ -16,7 +16,7 @@ public class LogoutServlet extends HttpServlet {
         // 用户注销
         req.getSession().removeAttribute("user");
 
-        Cookie cookie = new Cookie("autologin","msg");
+        Cookie cookie = new Cookie("autoLogin",null);
         cookie.setPath(req.getContextPath());
         cookie.setMaxAge(0);
         resp.addCookie(cookie);
