@@ -15,52 +15,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/libs/bootstrap-4.3.1-dist/css/bootstrap.min.css" >
     <style>
-        .main{
-            background-color: white;
-            margin-top: 15px;
-            height: 600px;
+        html,body{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            background: url(${pageContext.request.contextPath}/static/images/admin/admin_login_bg.jpg) center center no-repeat;
+            background-size: cover;
         }
-        .content{
-            padding-top: 30px;
-        }
-        .login_form_div{
-            margin: 0 auto;
-            width: 400px;
-            padding: 30px;
-            border: #8d8d8d 1px solid;
-            border-radius: 5px;
+        .login_box{
             text-align: center;
+            border: #8d8d8d solid 1px;
+            border-radius: 5px;
+            margin-top: 200px;
         }
-        .form-group{
-            padding: 0 15px;
+        .login_box h4{
+            margin: 20px 0;
+        }
+        .login_btn{
+            margin-bottom: 15px;
         }
     </style>
 </head>
-<body style="background-color: #f6f6f6">
-<div class="container" style="height: 1080px">
-    <div class="header">
-        <%@include file="../client/head.jsp"%>
-    </div>
-    <div class="main">
-        <div class="content row">
-            <div class="login_form_div col-md-4 align-self-center">
-                <h5>登录</h5><hr>
-                <form action="${pageContext.request.contextPath}/Login" method="post">
-                    <div class="form-group row">
-                        <label for="phone" class="col-md-4">手机号:</label>
-                        <input type="text" class="form-control col-md-8" id="phone" name="phone" placeholder="输入您的手机号">
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-md-4">输入密码:</label>
-                        <input type="password" class="form-control col-md-8" id="password" name="password" placeholder="输入密码">
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;padding: 0 15px">登录</button>
-                </form>
-            </div>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-4 login_box">
+            <h4>管理员登录</h4>
+            <form action="${pageContext.request.contextPath}/admin_loginCheck" method="post">
+                <div class="form-group row justify-content-center">
+                    <input type="text" class="form-control  col-md-8" name="admin_name" placeholder="管理员">
+                </div>
+                <div class="form-group row justify-content-center">
+                    <input type="password" class="form-control col-md-8" name="password" placeholder="密码">
+                </div>
+                <button type="submit" class="btn btn-primary col-md-8 login_btn">登录</button>
+            </form>
         </div>
-    </div>
-    <div class="foot" style="margin-top: 10px">
-        <%@include file="../client/foot.jsp"%>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/static/js/jquery-3.4.1.js"></script>

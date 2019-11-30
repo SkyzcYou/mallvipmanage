@@ -17,6 +17,7 @@ public class UserCenterServlet extends HttpServlet {
             System.out.println("session 中没有 user，没有登陆！");
             RequestDispatcher dispatcher = req.getRequestDispatcher("login.jsp");
             dispatcher.forward(req,resp);
+            return;
         }
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/client/userCenter.jsp");
         dispatcher.forward(req,resp);

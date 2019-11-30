@@ -9,7 +9,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-
+/*
+*   用户自动登录
+* */
 public class AutoLoginFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -20,22 +22,25 @@ public class AutoLoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         // 获取 cookie
         Cookie[] cookies = request.getCookies();
-        String autologin = null;
-        for (int i = 0;cookies != null && i<cookies.length;i++){
-            if ("autologin".equals(cookies[i].getName())){
-                autologin = cookies[i].getValue();
+        // System.out.println("cookies[0] name:"+ cookies[0].getName()+",cookies[0] value:" + cookies[0].getValue());
+        String autoLogin = null;
+        // 找到 cookie : autoLogin
+        for (int i = 0;i<cookies.length;i++){
+            if ("autoLogin".equals(cookies[i].getName())){
+                autoLogin = cookies[i].getValue();
                 break;
             }
         }
         // 自动登录
-        if (autologin != null){
-            String[] parts = autologin.split("-");
+        if (autoLogin != null){
+            String[] parts = autoLogin.split("-");
             String phone = parts[0];
             String password = parts[1];
             // 调用 Service 登录
             UserService userService = new UserService();
             try {
                 User user = userService.login(phone,password);
+                request.getSession().setAttribute("user",user);
                 System.out.println("[AutoLoginFilter]-Auto Login Success：" + user.getUsername());
             } catch (LoginException e) {
                 e.printStackTrace();

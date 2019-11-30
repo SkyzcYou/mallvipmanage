@@ -1,6 +1,7 @@
 package com.yingnuo.domain;
 
 public class User {
+    private int user_id;
     private String username;
     private String phone;
     private String password;
@@ -8,6 +9,14 @@ public class User {
     private String address;
     private String point;
     private String rank;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 
     public String getPhone() {
         return phone;
