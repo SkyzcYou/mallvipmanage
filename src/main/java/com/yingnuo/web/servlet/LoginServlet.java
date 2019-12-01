@@ -14,8 +14,6 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        System.out.println(req.getParameter("phone"));
-//        System.out.println(req.getParameter("password"));
 
         String phone = req.getParameter("phone");
         String password = req.getParameter("password");
@@ -36,9 +34,11 @@ public class LoginServlet extends HttpServlet {
             req.getSession().setAttribute("user",user);
             // 登录成功 跳转首页
             resp.sendRedirect(req.getContextPath()+"/index");
-            return;
         } catch (LoginException e) {
             e.printStackTrace();
+            // 登录失败
+            req.setAttribute("register_message",e.getMessage());
+            req.getRequestDispatcher("login.jsp").forward(req,resp);
         }
 
 

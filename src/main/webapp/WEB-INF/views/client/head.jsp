@@ -9,7 +9,7 @@
 <body>
 <div class="container" style="padding: 0">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #30b30e">
-        <a class="navbar-brand" href="#">樱诺商城</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/index">樱诺商城</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

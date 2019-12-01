@@ -4,10 +4,15 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <!--  -->
+  <!-- welcome -->
   <welcome-file-list>
     <welcome-file>index</welcome-file>
   </welcome-file-list>
+  <!-- error-page:404 -->
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/errors/404.jsp</location>
+  </error-page>
   <!-- Filter -->
   <filter>
     <filter-name>CharacterFilter</filter-name>

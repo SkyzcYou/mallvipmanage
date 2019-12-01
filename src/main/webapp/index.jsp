@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: youzh
-  Date: 2019/11/27
-  Time: 0:40
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -13,11 +6,9 @@
     <title>樱诺商城</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/static/images/favicon.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/libs/bootstrap-4.3.1-dist/css/bootstrap.min.css" >
     <style>
-        /*.float-left{*/
-        /*    float: left;*/
-        /*}*/
         .clear{
             clear: both;
         }
@@ -86,7 +77,7 @@
         <div class="header">
             <%@include file="WEB-INF/views/client/head.jsp"%>
         </div>
-        <div class="main" style="background-color: white;margin-top: 15px">
+        <div class="main" style="background-color: white;margin-top: 15px;margin-bottom: 30px">
             <!-- 轮播 banner -->
             <div id="banner-carousel" class="carousel slide" data-ride="carousel">
 

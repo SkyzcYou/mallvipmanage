@@ -13,6 +13,7 @@
     <title>樱诺商城</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/static/images/favicon.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/libs/bootstrap-4.3.1-dist/css/bootstrap.min.css" >
     <style>
         html,body{
@@ -50,6 +51,7 @@
                 <div class="form-group row justify-content-center">
                     <input type="password" class="form-control col-md-8" name="password" placeholder="密码">
                 </div>
+                <h5 class="text-danger">${register_message}</h5>
                 <button type="submit" class="btn btn-primary col-md-8 login_btn">登录</button>
             </form>
         </div>

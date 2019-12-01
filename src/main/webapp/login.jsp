@@ -10,9 +10,10 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-    <title>樱诺商城</title>
+    <title>樱诺商城-登录</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/static/images/favicon.png">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/libs/bootstrap-4.3.1-dist/css/bootstrap.min.css" >
     <style>
         .main{
@@ -44,7 +45,7 @@
         <div class="main">
             <div class="content row">
                 <div class="login_form_div col-md-4 align-self-center">
-                    <h5>会员登录</h5><hr>
+                    <h6>会员登录</h6><hr>
                     <form action="${pageContext.request.contextPath}/Login" method="post">
                         <div class="form-group row">
                             <label for="phone" class="col-md-4">手机号:</label>
@@ -54,6 +55,7 @@
                             <label for="password" class="col-md-4">输入密码:</label>
                             <input type="password" class="form-control col-md-8" id="password" name="password" placeholder="输入密码">
                         </div>
+                        <h5 class="text-danger">${register_message}</h5>
                         <button type="submit" class="btn btn-primary" style="width: 100%;padding: 0 15px">登录</button>
                     </form>
                 </div>
