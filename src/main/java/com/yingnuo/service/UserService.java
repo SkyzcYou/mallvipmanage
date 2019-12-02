@@ -21,4 +21,13 @@ public class UserService {
             throw new LoginException("登录失败");
         }
     }
+    // 更新
+    public Boolean upgradeUserByPhone(User user) throws Exception {
+        try {
+            return dao.upgradeUserByPhone(user);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new Exception("更新失败");
+        }
+    }
 }

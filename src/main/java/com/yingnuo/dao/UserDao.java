@@ -15,4 +15,11 @@ public class UserDao {
         QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
         return runner.query(sql,new BeanHandler<User>(User.class),phone,password);
     }
+    // 根据手机号更新用户信息
+    public Boolean upgradeUserByPhone(User user) throws SQLException{
+        String sql = "update user set username=?,gender=?,address=? where phone=?";
+        QueryRunner runner = new QueryRunner(DataSourceUtils.getDataSource());
+        int num = runner.update(sql,new Object[]{user.getUsername(),user.getGender(),user.getAddress(),user.getPhone()});
+        return num > 0;
+    }
 }
