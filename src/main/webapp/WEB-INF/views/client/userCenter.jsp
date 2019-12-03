@@ -214,7 +214,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone">手机号：</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="${sessionScope.user.phone}" value="${sessionScope.user.phone}" disabled>
+                                <input type="text" class="form-control" id="phone" placeholder="${sessionScope.user.phone}" value="${sessionScope.user.phone}" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="gender">性别：</label>
@@ -239,17 +239,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="address">住址：</label>
-                                <input type="text" class="form-control" id="address" name="address" placeholder="${sessionScope.user.address}">
+                                <input type="text" class="form-control" id="address" name="address" placeholder="${sessionScope.user.address}" value="${sessionScope.user.address}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">确认更改</button>
                         </form>
                     </div>
                 </div>
 
                 <!-- 模态框底部 -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">确认更改</button>
-                </div>
+<%--                <div class="modal-footer">--%>
+<%--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">确认更改</button>--%>
+<%--                </div>--%>
 
             </div>
         </div>

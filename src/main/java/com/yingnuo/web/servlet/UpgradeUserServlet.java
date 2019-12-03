@@ -31,6 +31,21 @@ public class UpgradeUserServlet extends HttpServlet {
             return;
         }
         UserService userService = new UserService();
+        User handleUser = new User();
+        handleUser.setPhone(user.getPhone());
+        handleUser.setUsername(req.getParameter("username"));
+        handleUser.setGender(req.getParameter("gender"));
+        handleUser.setAddress(req.getParameter("address"));
+
+        try {
+            userService.upgradeUserByPhone(handleUser);
+            //
+            req.getSession().removeAttribute("user");
+            req.getSession().setAttribute("user",userService.login(handleUser.getPhone(),user.getPassword()));
+            resp.sendRedirect(req.getHeader("Referer"));//返回并刷新
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }
