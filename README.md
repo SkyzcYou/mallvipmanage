@@ -1,7 +1,8 @@
 # mallvipmanage 樱诺商城
-一个基于Java Model2 开发模式开发的商城管理系统。
-后端使用了Java Servlet技术处理HTTP请求，加上JSP技术，使用EL表达式和JSTL标签来辅助开发
-前端页面使用了Jquery、BootStrap框架
+一个基于Java Model2 开发模式开发的商城管理系统。  
+后端使用了Java Servlet技术处理HTTP请求，加上JSP技术，使用EL表达式和JSTL标签来辅助开发  
+前端页面使用了Jquery、BootStrap框架。  
+项目使用 Maven3.6.0 构建，服务器为 Tomcat 9.0.17
 
 ### 1.示例地址：[http://119.3.190.107:8080/mvm/](http://119.3.190.107:8080/mvm/)
 ### 2.测试账号
