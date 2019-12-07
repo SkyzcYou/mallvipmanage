@@ -5,6 +5,6 @@
         <property name="driverClass">com.mysql.jdbc.Driver</property>
         <property name="jdbcUrl">jdbc:mysql://localhost:3306/mall_vip_manage?serverTimezone=UTC&amp;characterEncoding=utf-8</property>
         <property name="user">root</property>
-        <property name="password">140472</property>
+        <property name="password">youzc</property>
     </default-config>
 </c3p0-config>
