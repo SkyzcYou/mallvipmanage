@@ -37,7 +37,7 @@
             transform: translateY(100%);
         }
         .notice{
-            height: 40px;
+            height: 30px;
         }
         .notice .notice-img{
             width: 25px;
@@ -69,6 +69,14 @@
         }
         .mall_list_img:hover{
             border: #30b30e 1px solid;
+        }
+    /*    blackboard-box*/
+        .main-box{
+            /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+            /*border-radius: 1%;*/
+            height: 400px;
+            margin: 0 !important;
+
         }
     </style>
 </head>
@@ -128,21 +136,34 @@
                 <div id="notice-carousel" class="carousel slide carousel-vertical float-left" data-ride="carousel" style="margin-left:4px;margin-top:2px">
                     <!-- 轮播通知 -->
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <h6 class="text-golden">今日特价</h6>
-                        </div>
-                        <div class="carousel-item">
-                            <h6 class="text-golden">明日特价</h6>
-                        </div>
-                        <div class="carousel-item">
-                            <h6 class="text-golden">后天特价</h6>
-                        </div>
+                        <c:set var="isActive" value="true"></c:set>
+                        <c:forEach var="loopNotice" items="${loopNoticeArray}">
+                            <c:choose>
+                                <c:when test="${isActive}">
+                                    <div class="carousel-item active">
+                                        <h6 class="text-golden">${loopNotice}</h6>
+                                    </div>
+                                    <c:set var="isActive" value="flase"></c:set>
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="carousel-item">
+                                        <h6 class="text-golden">${loopNotice}</h6>
+                                    </div>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
-            <h1>初始：${name}</h1>
+            <div class="main-box container row">
+                <div class="rel-blackboard col-md-12">
+                    <h1 class="text-center text-success">公告板</h1>
+                    <p>${blackboard}</p>
+                </div>
+            </div>
             <!-- 合作商列表 -->
+            <h4 style="margin-left: 15px">合作伙伴：</h4>
             <div class="mall_list_div">
                 <ul>
                     <li><img class="mall_list_img" src="${pageContext.request.contextPath}/static/images/malllistimg/li01.jpg" alt=""></li>

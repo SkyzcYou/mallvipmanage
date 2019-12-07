@@ -142,7 +142,7 @@
                                 <%-- 所享折扣 --%>
                             <div class="col-md-4 col-sm-4 text-center">
                                 <p class="text-purple"><i class="fa fa-stumbleupon text-red"></i></p>
-                                <h1>9.5</h1><span>折</span>
+                                <h1>${UserRebate}</h1><span>折</span>
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
         </div>
 
     </div>
-    <!-- 注册提示模态框 -->
+    <!-- 模态框 -->
     <div class="modal fade" id="editInfoModal">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -218,7 +218,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender">性别：</label>
-                                <select class="form-control" id="gender" name="gender" selec>
+                                <select class="form-control" id="gender" name="gender">
                                     <option selected
                                     <c:choose>
                                         <c:when test="${sessionScope.user.gender == '男'}">

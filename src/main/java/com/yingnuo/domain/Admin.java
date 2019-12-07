@@ -12,6 +12,7 @@ public class Admin {
     private int admin_id;
     private String admin_name;
     private String password;
+    private String note;
 
     public int getAdmin_id() {
         return admin_id;
@@ -35,5 +36,23 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "admin_id=" + admin_id +
+                ", admin_name='" + admin_name + '\'' +
+                ", password='" + password + '\'' +
+                ", note='" + note + '\'' +
+                '}';
     }
 }

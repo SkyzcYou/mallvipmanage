@@ -14,8 +14,6 @@ public class MallInfoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        PrintWriter printWriter = resp.getWriter();
-
         String name = "樱诺商城";
         String phoneNumber = "026-75078";
         String address = "内蒙古呼和浩特市经济技术开发区金川工业园区";

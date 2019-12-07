@@ -1,7 +1,8 @@
 package com.yingnuo.web.servlet.admin;
 
-import com.yingnuo.domain.Order;
-import com.yingnuo.service.OrderService;
+import com.yingnuo.domain.Admin;
+import com.yingnuo.domain.User;
+import com.yingnuo.service.AdminService;
 import com.yingnuo.service.UserService;
 
 import javax.security.auth.login.LoginException;
@@ -17,13 +18,13 @@ import java.util.List;
 /**
  * Created with IntelliJ IDEA.
  * User: skyzc
- * Date: 2019/11/30
- * Time: 15:13
+ * Date: 2019/12/4
+ * Time: 12:59
  * To change this template use File | Settings | File Templates.
  * Description:
  */
-@WebServlet("/admin")
-public class AdminLoginPageServlet extends HttpServlet {
+@WebServlet("/admin/manageUser")
+public class ManageUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 判断是否有 session
@@ -34,38 +35,22 @@ public class AdminLoginPageServlet extends HttpServlet {
             dispatcher.forward(req,resp);
             return;
         }
-        // 获取最新 5 条订单
-        OrderService orderService = new OrderService();
+        // 如果有 session ，表示有管理已经登录了，连接到公告管理
+
         UserService userService = new UserService();
         try {
-            List<Order> newFiveOrderList = orderService.findNewFiveOrder();
-            req.setAttribute("newFiveOrderList",newFiveOrderList);
+            List<User> userList = userService.findAllUser();
+            req.setAttribute("userList",userList);
         } catch (LoginException e) {
             e.printStackTrace();
-            req.setAttribute("newFiveOrderList",null);
-
-        }
-        // 获取 订单量 会员数 成交额 积分池
-        try {
-            req.setAttribute("countOrder",orderService.countOrder());
-            req.setAttribute("allPoint",userService.allPoint());
-            req.setAttribute("allPayAmount",orderService.allPlayAmount());
-            req.setAttribute("countUser",userService.countUser());
-        } catch (LoginException e) {
-            e.printStackTrace();
-            req.setAttribute("countOrder",null);
-            req.setAttribute("countUser",null);
-            req.setAttribute("allPayAmount",null);
-            req.setAttribute("allPoint",null);
         }
 
-        // 如果有 session ，表示有管理已经登录了
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/admin_index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/admin/admin_user_management.jsp");
         dispatcher.forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req, resp);
+        super.doPost(req, resp);
     }
 }

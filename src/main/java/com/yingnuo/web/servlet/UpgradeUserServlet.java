@@ -39,7 +39,6 @@ public class UpgradeUserServlet extends HttpServlet {
 
         try {
             userService.upgradeUserByPhone(handleUser);
-            //
             req.getSession().removeAttribute("user");
             req.getSession().setAttribute("user",userService.login(handleUser.getPhone(),user.getPassword()));
             resp.sendRedirect(req.getHeader("Referer"));//返回并刷新

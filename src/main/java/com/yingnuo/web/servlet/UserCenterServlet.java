@@ -2,7 +2,10 @@ package com.yingnuo.web.servlet;
 
 import com.yingnuo.domain.Order;
 import com.yingnuo.domain.User;
+import com.yingnuo.domain.VipRule;
+import com.yingnuo.service.VipRuleService;
 import com.yingnuo.service.OrderService;
+import com.yingnuo.service.UserService;
 
 import javax.security.auth.login.LoginException;
 import javax.servlet.RequestDispatcher;
@@ -26,23 +29,52 @@ public class UserCenterServlet extends HttpServlet {
             dispatcher.forward(req,resp);
             return;
         }
+        // 重新登录刷新 session
+        UserService userService = new UserService();
+        String phone = user.getPhone();
+        String password = user.getPassword();
+        try {
+            req.getSession().removeAttribute("user");
+            user = userService.login(phone,password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // 获取当前用户积分，根据会员体系返回等级和折扣
+        VipRuleService vipRuleService = new VipRuleService();
+        List<VipRule> vipRuleList = null;
+        Double userReabate = null;
+        int user_point = Integer.parseInt(user.getPoint());
+        try {
+            vipRuleList = vipRuleService.findAllVipRule();
+            for (VipRule vipRule : vipRuleList){
+                if (user_point <= vipRule.getMax_point()){
+                    user.setRank(String.valueOf(vipRule.getIs_rank()));
+                    userReabate = vipRule.getRebate();
+                    break;
+                }else {
+                    user.setRank("6");
+                    userReabate = vipRuleService.findRebateByRank(6);
+                }
+            }
+        } catch (LoginException e) {
+            e.printStackTrace();
+            System.out.println("[UserCenterServlet]-获取会员体系失败");
+        }
+
+        req.getSession().setAttribute("user",user);
+        req.setAttribute("UserRebate",userReabate);
+
+
         // 获取 用户的全部订单
         OrderService orderService = new OrderService();
         try {
             List<Order> orderList = orderService.allOrderOfUser(user.getPhone());
             req.setAttribute("orderList",orderList);
             System.out.println("[UserCenterServlet]-获取用户："+ user.getUsername()+ " 的订单列表成功");
-//            for (Order order : orderList){
-//                System.out.println("订单号："+order.getOrder_id());
-//                System.out.println("订单金额："+order.getActual_amount());
-//                System.out.println("订单实付金额："+order.getPay_amount());
-//                System.out.println("订单创建时间："+order.getCreate_date());
-//            }
         } catch (LoginException e) {
             e.printStackTrace();
             req.setAttribute("orderList","error");
         }
-//
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/client/userCenter.jsp");
         dispatcher.forward(req,resp);
     }
